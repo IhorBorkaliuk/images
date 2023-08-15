@@ -1,19 +1,22 @@
+import { Component } from "react";
+import { SearchBar } from "./Searchbar/Searchbar";
 
 
+export class App extends Component {
+  state = {
+    query: '',
+  };
 
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      Start
-    </div>
-  );
-};
+  updateQuery = text => {
+    this.setState({ query: text });
+  };
+
+  render() {
+
+    return (
+      <div>
+        <SearchBar onSubmit={this.updateQuery} />
+      </div>
+    );
+  }
+}
